@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Drawing App</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="tool-box">
+            <button class="clear-btn">Clear</button>
+            <div class="tool-size">
+                <label class="size-label"><span class="tool-type">Pen</span> Size</label>
+                <input type="range" class="size-range" value="5" min="1" max="50" />
+            </div>
+            <div class="other-tools">
+                <div class="color">
+                    <label>Color</label>
+                    <input type="color" value="#000000" />
+                </div>
+                <div class="background">
+                    <label>Background</label>
+                    <input type="color" value="#ffffff" />
+                </div>
+                <div class="pen">
+                    <label>Pen</label>
+                    <button class="pen-box">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                </div>
+                <div class="eraser">
+                    <label>Eraser</label>
+                    <button class="eraser-box">
+                        <i class="fa-solid fa-eraser"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="canvas-container">
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

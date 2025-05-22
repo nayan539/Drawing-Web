@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    background-color: #6495ed;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.tool-box {
+    height: 130px;
+    width: 100%;
+    background-color: #e2e7eb;
+    position: relative;
+    z-index: 2;
+}
+
+.clear-btn {
+    all: unset;
+    padding: 3px;
+    width: 60px;
+    background-color: #fff;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #696969;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.tool-size {
+    height: 25px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.tool-size label {
+    font-size: 14px;
+    padding-right: 8px;
+}
+
+.size-range {
+    width: 130px;
+    height: 6px;
+    cursor: pointer;
+}
+
+.other-tools {
+    margin-top: 58px;
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.other-tools div {
+    text-align: center;
+    font-size: 13px;
+}
+
+.other-tools input[type="color"] {
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.pen-box, .eraser-box {
+    all: unset;
+    height: 30px;
+    width: 30px;
+    background-color: #fff;
+    color: #808080;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid #808080;
+    margin-top: 5px;
+}
+
+.canvas-container {
+    flex: 1;
+    width: 100%;
+    position: relative;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
