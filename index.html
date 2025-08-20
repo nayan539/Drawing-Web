@@ -1,48 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Drawing App</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drawing App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="tool-box">
-            <button class="clear-btn">Clear</button>
-            <div class="tool-size">
-                <label class="size-label"><span class="tool-type">Pen</span> Size</label>
-                <input type="range" class="size-range" value="5" min="1" max="50" />
-            </div>
-            <div class="other-tools">
-                <div class="color">
-                    <label>Color</label>
-                    <input type="color" value="#000000" />
-                </div>
-                <div class="background">
-                    <label>Background</label>
-                    <input type="color" value="#ffffff" />
-                </div>
-                <div class="pen">
-                    <label>Pen</label>
-                    <button class="pen-box">
-                        <i class="fa-solid fa-pen"></i>
-                    </button>
-                </div>
-                <div class="eraser">
-                    <label>Eraser</label>
-                    <button class="eraser-box">
-                        <i class="fa-solid fa-eraser"></i>
-                    </button>
-                </div>
-            </div>
+  <div class="container">
+    <div class="tool-box">
+      <div class="left-tools">
+        <button class="clear-btn" title="Clear Canvas">Clear</button>
+        <button class="download-png-btn" title="Download PNG">PNG</button>
+        <button class="download-jpg-btn" title="Download JPEG">JPEG</button>
+        <button class="undo-btn" title="Undo (Ctrl+Z)"><i class="fa-solid fa-rotate-left"></i></button>
+        <button class="redo-btn" title="Redo (Ctrl+Shift+Z)"><i class="fa-solid fa-rotate-right"></i></button>
+      </div>
+
+      <div class="tool-size">
+        <label class="size-label"><span class="tool-type">Pen</span> Size</label>
+        <input type="range" class="size-range" value="6" min="1" max="50" />
+      </div>
+
+      <div class="other-tools">
+        <div class="color">
+          <label>Color</label>
+          <input type="color" value="#000000" />
         </div>
-        <div class="canvas-container">
-            <canvas id="canvas"></canvas>
+        <div class="background">
+          <label>Background</label>
+          <input type="color" value="#ffffff" />
         </div>
+
+        <div class="pen">
+          <label>Pen</label>
+          <button class="pen-box tool-btn active" title="Pen"><i class="fa-solid fa-pen"></i></button>
+        </div>
+        <div class="eraser">
+          <label>Eraser</label>
+          <button class="eraser-box tool-btn" title="Eraser"><i class="fa-solid fa-eraser"></i></button>
+        </div>
+        <div class="text-tool">
+          <label>Text</label>
+          <button class="text-box tool-btn" title="Text Tool"><i class="fa-solid fa-font"></i></button>
+        </div>
+
+        <div class="shape">
+          <label>Shape</label>
+          <select class="shape-select" title="Choose a shape">
+            <option value="free">Free</option>
+            <option value="line">Line</option>
+            <option value="rect">Rectangle</option>
+            <option value="circle">Circle</option>
+            <option value="triangle">Triangle</option>
+            <option value="arrow">Arrow</option>
+            <option value="star">Star</option>
+          </select>
+        </div>
+
+        <div class="fill-shape">
+          <label>Fill Shape</label>
+          <input type="checkbox" class="fill-checkbox" />
+        </div>
+
+        <div class="brush">
+          <label>Brush</label>
+          <select class="brush-select" title="Brush Type">
+            <option value="pen">Pen</option>
+            <option value="pencil">Pencil</option>
+            <option value="marker">Marker</option>
+            <option value="spray">Spray</option>
+            <option value="calligraphy">Calligraphy</option>
+          </select>
+        </div>
+
+        <div class="pressure">
+          <label>Pressure</label>
+          <input type="checkbox" class="pressure-checkbox" title="Stylus pressure affects size" />
+        </div>
+
+        <div class="smooth">
+          <label>Smooth</label>
+          <input type="checkbox" class="smooth-checkbox" checked title="Stroke smoothing" />
+        </div>
+
+        <div class="grid">
+          <label>Grid</label>
+          <input type="checkbox" class="grid-checkbox" title="Toggle grid overlay" />
+        </div>
+
+        <div class="import">
+          <label>Import</label>
+          <button class="import-btn" title="Import Image"><i class="fa-solid fa-image"></i></button>
+          <input type="file" class="import-input" accept="image/*" hidden />
+        </div>
+
+        <div class="project">
+          <label>Project</label>
+          <button class="save-project-btn" title="Save Project (JSON)"><i class="fa-solid fa-floppy-disk"></i></button>
+          <button class="load-project-btn" title="Load Project (JSON)"><i class="fa-solid fa-folder-open"></i></button>
+          <input type="file" class="load-input" accept="application/json" hidden />
+        </div>
+      </div>
     </div>
-    <script src="script.js"></script>
+
+    <div class="canvas-container">
+      <!-- Drawing layer -->
+      <canvas id="canvas"></canvas>
+      <!-- Grid overlay (no interaction) -->
+      <canvas id="grid"></canvas>
+      <!-- Visible eraser cursor -->
+      <div class="eraser-cursor"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
